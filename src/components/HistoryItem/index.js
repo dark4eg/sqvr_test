@@ -8,6 +8,8 @@ import PropTypes from "prop-types";
 import Moment from 'react-moment';
 import 'moment/locale/ru';
 import ReactImageFallback from "react-image-fallback";
+import translate from './translate';
+
 
 const HistoryItem = ({ classes, user, date, historyType} ) => {
   return (
@@ -30,7 +32,7 @@ const HistoryItem = ({ classes, user, date, historyType} ) => {
                   {date}
                 </Moment>
             </Typography>
-            <Typography>{historyType}</Typography>
+            <Typography>{translate[historyType]}</Typography>
           </Grid>
         </Grid>
       </Paper>

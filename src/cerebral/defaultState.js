@@ -1,4 +1,11 @@
+const LIMIT = 6;
+const OFFSET = 0;
+
 export default (store) => ({
   ...store,
-  // add any default state values here
+    show: false,
+    userId: false,
+    limit: LIMIT,
+    offset: OFFSET,
+    foo: 'test'
 });

@@ -1,8 +1,7 @@
 import App from 'cerebral';
 import Devtools from 'cerebral/devtools';
 import defaultState from './cerebral/defaultState';
-
-import sequences from './cerebral/sequences';
+import * as sequences from './cerebral/sequences'
 
 let app;
 
