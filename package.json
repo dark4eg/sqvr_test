@@ -25,7 +25,10 @@
     "start": "HOST=sqvr.loc PORT=3000 react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "lint:fix": "eslint --fix --ext .jsx,.js src/",
+    "prettier": "prettier --check \"src/**/*.js\"",
+    "prettier:fix": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +38,15 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "7.11.0",
+    "prettier": "^1.16.4"
+  }
 }
