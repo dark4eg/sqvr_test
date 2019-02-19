@@ -1,1 +1,0 @@
-import { UPDATE_FILTER_REGISTRY } from '../../constants/actions';export default function(state = {}, { type, payload }) {  switch (type) {    case UPDATE_FILTER_REGISTRY:      return { ...state, ...payload };    default:      return state;  }}

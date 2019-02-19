@@ -1,1 +1,0 @@
-import { combineReducers } from 'redux';import routeInfoReducer from './routeInfo';import historyReducer from './history';const rootReducer = combineReducers({  routeInfo: routeInfoReducer,  history: historyReducer});export default rootReducer;

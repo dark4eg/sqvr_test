@@ -4,24 +4,17 @@ import './App.css';
 import { Container as CerebralContainer } from '@cerebral/react';
 import appController from './controller';
 import Navigate from './components/Navigate';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
 
 let controller = appController();
 
 class App extends Component {
   render() {
-    const routeInfo = {
-      path: window.location.pathname
-    };
 
     return (
       <CerebralContainer app={controller}>
-        <Provider store={configureStore({ routeInfo })}>
           <BrowserRouter>
-            <Navigate />
+              <Navigate />
           </BrowserRouter>
-        </Provider>
       </CerebralContainer>
     );
   }
