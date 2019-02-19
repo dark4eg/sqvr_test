@@ -1,0 +1,1 @@
+import Typography from '@material-ui/core/Typography';import React from 'react';const User = props => {  return (    <div className="content">      <Typography variant="h4">История Пользователя</Typography>    </div>  );};export default User;

@@ -1,0 +1,1 @@
+import Typography from '@material-ui/core/Typography';import React from 'react';const Registry = props => {  return (    <div className="content">      <Typography variant="h4">История Реестра</Typography>    </div>  );};export default Registry;
