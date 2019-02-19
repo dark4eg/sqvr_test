@@ -10,7 +10,7 @@ import * as serviceWorker from './serviceWorker';
 
 const httpParams = {
   uri: 'https://devsqvr.ru/api/graphql/v1',
-  credentials: 'include',
+  credentials: 'include'
 };
 
 const client = new ApolloClient({
@@ -18,11 +18,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-ReactDOM.render((
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  ),
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
