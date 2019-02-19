@@ -1,0 +1,1 @@
+export const SET_ROUTE_INFO = 'SET_ROUTE_INFO';

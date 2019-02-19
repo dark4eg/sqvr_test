@@ -1,0 +1,1 @@
+import { combineReducers } from 'redux';import registryReducer from './registry';import userReducer from './user';const rootReducer = combineReducers({    registry: registryReducer,    user: userReducer,});export default rootReducer;
