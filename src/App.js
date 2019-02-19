@@ -11,9 +11,13 @@ let controller = appController();
 
 class App extends Component {
   render() {
+    const routeInfo = {
+      path: window.location.pathname
+    };
+
     return (
       <CerebralContainer app={controller}>
-        <Provider store={configureStore({})}>
+        <Provider store={configureStore({ routeInfo })}>
           <BrowserRouter>
             <Navigate />
           </BrowserRouter>
