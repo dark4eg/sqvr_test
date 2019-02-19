@@ -1,1 +1,1 @@
-import { SET_ROUTE_INFO } from '../constants/actions';export default function (state = {}, { type, payload }) {    switch (type) {        case SET_ROUTE_INFO:            return { ...state, ...payload };        default:            return state;    }}
+import { SET_ROUTE_INFO } from '../../constants/actions';export default function(state = {}, { type, payload }) {  switch (type) {    case SET_ROUTE_INFO:      return { ...state, ...payload };    default:      return state;  }}

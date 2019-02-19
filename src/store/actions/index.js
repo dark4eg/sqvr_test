@@ -1,0 +1,1 @@
+import { SET_ROUTE_INFO } from '../constants/actions';export const setRouterInfo = payload => ({ type: SET_ROUTE_INFO, payload });

@@ -1,0 +1,1 @@
+import { setRouterInfo } from './index';const setRouteInfo = props => dispatch => dispatch(setRouterInfo(props));export default setRouteInfo;
