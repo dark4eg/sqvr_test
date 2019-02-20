@@ -1,0 +1,1 @@
+const filterList = [  {    id: 1,    text: 'Добавлен собственник',    value: 'AddNewOwner'  },  {    id: 2,    text: 'Был импорт реестра',    value: 'Import'  },  {    id: 3,    text: 'Удален собственник',    value: 'DeleteOwner'  }];export default filterList;
