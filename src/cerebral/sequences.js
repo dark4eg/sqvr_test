@@ -29,7 +29,7 @@ export const routeToRegistry = [
     set(state`isLoadingPage`, false)
 ];
 
-export const routeToNotFound = set(state`current.page`, 'not-found');;
+export const routeToNotFound = set(state`current.page`, 'notfound');;
 
 export default [
     loadPage,
