@@ -31,4 +31,10 @@ export const routeToRegistry = [
 
 export const routeToNotFound = set(state`current.page`, 'not-found');;
 
-export default [loadPage, changePage];
+export default [
+    loadPage,
+    changePage,
+    routeToRoot,
+    routeToRegistry,
+    routeToNotFound
+];
