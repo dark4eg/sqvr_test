@@ -15,21 +15,19 @@ const client = new ApolloClient({
   uri: 'https://devsqvr.ru/api/graphql/v1'
 });
 
-class App extends Component {
+class AppContainer extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
         <CerebralContainer app={controller}>
-          <BrowserRouter>
             <Navigate />
-          </BrowserRouter>
         </CerebralContainer>
       </ApolloProvider>
     );
   }
 }
 
-export default App;
+export default AppContainer;
 
 // {
 //     users {
