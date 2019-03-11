@@ -21,6 +21,7 @@ const changePage = [
 export const routeToRoot = set(state`current.page`, 'root');
 
 export const routeToRegistry = [
+    // actions.setBrowserUrl,
     set(state`current.page`, 'registry'),
     set(state`isLoadingPage`, true),
     actions.clearItems,
@@ -29,12 +30,12 @@ export const routeToRegistry = [
     set(state`isLoadingPage`, false)
 ];
 
-export const routeToNotFound = set(state`current.page`, 'notfound');;
+export const routeToNotFound = set(state`current.page`, 'notfound');
 
-export default [
+export default {
     loadPage,
     changePage,
     routeToRoot,
     routeToRegistry,
     routeToNotFound
-];
+};
