@@ -9,9 +9,9 @@ let controller = appController();
 class AppContainer extends Component {
   render() {
     return (
-        <CerebralContainer app={controller}>
-            <Navigate />
-        </CerebralContainer>
+      <CerebralContainer app={controller}>
+        <Navigate />
+      </CerebralContainer>
     );
   }
 }

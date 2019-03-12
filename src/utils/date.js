@@ -1,1 +1,1 @@
-import moment from 'moment';import 'moment/locale/ru';export const convertDate = (d) => moment(d).locale('ru').format('DD MMMM YYYY, h:mm');
+import moment from 'moment';import 'moment/locale/ru';export const convertDate = d =>  moment(d)    .locale('ru')    .format('DD MMMM YYYY, h:mm');
