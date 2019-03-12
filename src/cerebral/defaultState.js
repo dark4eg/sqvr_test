@@ -5,6 +5,7 @@ export default (s) => ({
     history: {
         isLoadingPage: false,
         isShowFilter: false,
+        isLoadingPaging: false,
         error: undefined,
         items: {
             list: [],

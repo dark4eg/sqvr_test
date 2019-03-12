@@ -1,10 +1,7 @@
-import { set, concat } from 'cerebral/factories';
+import { set, debounce } from 'cerebral/factories';
 import { state, props } from 'cerebral';
 import * as actions from './actions';
-import {toggleCard} from "./actions";
 import {toggleFilter} from "./actions";
-import {changeFilter} from "./actions";
-import {addToHistory} from "./actions";
 import {setHistory} from "./actions";
 
 const loadPage = [
@@ -31,11 +28,26 @@ export const routeToRegistry = [
 export const routeToNotFound = set(state`current.page`, 'notfound');
 
 export const changePage = [
-    set(state`isLoadingPaging`, true),
+    set(state`history.isLoadingPaging`, true),
     actions.nextMeta,
     actions.getHistory,
     actions.addToHistory,
-    set(state`isLoadingPaging`, false),
+    set(state`history.isLoadingPaging`, false),
+];
+
+export const changeFilter = [
+    actions.setFilter,
+    set(state`history.isLoadingPage`, true),
+    actions.clearItems,
+    debounce(100),
+    {
+        continue: [
+            actions.getHistory,
+            actions.setHistory,
+            set(state`history.isLoadingPage`, false),
+        ],
+        discard: []
+    },
 ];
 
 export default {
@@ -44,7 +56,6 @@ export default {
     routeToRoot,
     routeToRegistry,
     routeToNotFound,
-    toggleCard,
     toggleFilter,
     changeFilter,
     setHistory,
