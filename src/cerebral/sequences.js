@@ -1,5 +1,5 @@
 import { set, debounce } from 'cerebral/factories';
-import { state, props } from 'cerebral';
+import { state } from 'cerebral';
 import * as actions from './actions';
 import {toggleFilter} from "./actions";
 import {setHistory} from "./actions";
