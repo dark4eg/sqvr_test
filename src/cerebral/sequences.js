@@ -7,6 +7,7 @@ import {setHistory} from "./actions";
 export const routeToRoot = set(state`current.page`, 'root');
 
 export const routeToRegistry = [
+    actions.setParams,
     set(state`current.page`, 'registry'),
     set(state`history.isLoadingPage`, true),
     actions.clearItems,
@@ -16,6 +17,7 @@ export const routeToRegistry = [
 ];
 
 export const routeToUser = [
+    actions.setParams,
     set(state`current.page`, 'user'),
     set(state`history.isLoadingPage`, true),
     actions.clearItems,

@@ -1,6 +1,7 @@
 export default (s) => ({
     current: {
         page: 'root',
+        params: {},
     },
     history: {
         isLoadingPage: false,
