@@ -1,1 +1,0 @@
-import Typography from '@material-ui/core/Typography';import React from 'react';import {connect} from '@cerebral/react';const User = props => {  return (    <div className="content">      <Typography variant="h4">История Пользователя</Typography>    </div>  );};export default connect(User);
