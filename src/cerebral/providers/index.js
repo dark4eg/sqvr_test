@@ -1,1 +1,0 @@
-import * as apollo from './apollo/init';import * as api from './api/init';export default {    apollo: apollo(),    api: api,};

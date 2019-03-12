@@ -3,13 +3,24 @@ import Devtools from 'cerebral/devtools';
 import defaultState from './cerebral/defaultState';
 import sequences from './cerebral/sequences';
 import router from "./cerebral/modules/router";
+import initApollo from "./cerebral/providers/apollo/init";
+import ApolloCerebralProvider, { ApolloProviderError } from './cerebral/providers/apollo/provider';
 
 let app;
+let apolloClient;
 
 export default () => {
+    if (!apolloClient) {
+        apolloClient = initApollo({});
+    }
     if (app) {
         return app;
     }
+
+    const providers = [
+        ApolloCerebralProvider(apolloClient),
+    ];
+
     const state = defaultState({});
     const main = {
         state,
@@ -19,7 +30,13 @@ export default () => {
         sequences: {
             ...sequences
         },
+        providers: {
+            ...providers
+        },
         catch: [
+            [ApolloProviderError, ({message, props: {error}}) => {
+                console.log('apollo error', {Error, message, error});
+            }],
             [
                 Error,
                 ({message, props: {error}}) => {

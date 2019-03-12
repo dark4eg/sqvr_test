@@ -9,20 +9,12 @@ import './App.css';
 
 let controller = appController();
 
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  credentials: 'include',
-  uri: 'https://devsqvr.ru/api/graphql/v1'
-});
-
 class AppContainer extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
         <CerebralContainer app={controller}>
             <Navigate />
         </CerebralContainer>
-      </ApolloProvider>
     );
   }
 }
