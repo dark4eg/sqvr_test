@@ -4,23 +4,25 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import {withStyles} from '@material-ui/core/styles';
 import Avatar from '../../Avatar';
 import { convertDate } from '../../../../utils/date';
+import styles from '../styles';
 
-const User = ({ data, className, cardContentCss, cardHeaderCss }) => {
+const User = ({ data, classes}) => {
   const { date, updater, systemText } = data;
 
   const avatarView = <Avatar user={updater} />;
 
   return (
-    <Card className={className}>
+    <Card className={classes.borderBottom}>
       <CardHeader
-          className={cardHeaderCss}
+          className={classes.headerCard}
         avatar={avatarView}
         title={`${updater.firstName} ${updater.lastName}`}
         subheader={convertDate(date)}
       />
-      <CardContent className={cardContentCss}>
+      <CardContent className={classes.contentCard}>
         <p dangerouslySetInnerHTML={{ __html: `${systemText}` }} />
       </CardContent>
     </Card>
@@ -36,4 +38,4 @@ User.propTypes = {
   }).isRequired
 };
 
-export default User;
+export default withStyles(styles)(User);

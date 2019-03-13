@@ -11,22 +11,7 @@ import {withStyles} from '@material-ui/core/styles';
 import Avatar from '../../Avatar';
 
 import { convertDate } from '../../../../utils/date';
-
-const styles = theme => ({
-    flex: {
-        display: 'flex',
-    },
-    flexCellCenter: {
-        alignSelf: 'center'
-    },
-    borderBottom: {
-        borderBottom: '1px solid gray',
-    },
-    contentCard: {},
-    headerCard: {
-        paddingTop: 10,
-    },
-});
+import styles from '../styles';
 
 class Registry extends Component {
   constructor(props) {
