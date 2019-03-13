@@ -26,13 +26,13 @@ class Registry extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { data, className } = this.props;
     const { date, user, updater, systemText } = data;
     const { additionalIsActive } = this.state;
     const expandBtnView = additionalIsActive ? <ExpandLess /> : <ExpandMore />;
 
     return (
-      <Card className="">
+      <Card className={className}>
         <CardHeader
           avatar={<Avatar user={updater} />}
           title={`${updater.firstName} ${updater.lastName}`}

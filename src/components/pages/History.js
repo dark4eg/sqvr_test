@@ -72,7 +72,7 @@ const History = props => {
     const CardComponent = routes[page].componentChildren;
     const items =
         !isLoadingPage &&
-        list.map(item => <CardComponent key={`history-card-${uniqueId()}`} data={item}/>);
+        list.map(item => <CardComponent className={classes.filtersClass} key={`history-card-${uniqueId()}`} data={item}/>);
     const pagingLoadingView = !isLoadingPage && isLoadingPaging && (
         <CircularProgress variant="indeterminate"/>
     );
