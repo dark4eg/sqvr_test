@@ -7,14 +7,12 @@ import UserChildren from '../common/Cards/User';
 const routes = {
   root: {
     path: '/',
-    exact: true,
     component: Root,
     name: 'page-root',
     title: 'Index page'
   },
   registry: {
     path: '/history/registry/',
-    exact: true,
     component: History,
     componentChildren: RegistryChildren,
     name: 'page-registry',
@@ -22,7 +20,6 @@ const routes = {
   },
   user: {
     path: '/history/user/:userId',
-    exact: true,
     component: History,
     componentChildren: UserChildren,
     name: 'page-user',

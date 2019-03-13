@@ -21,7 +21,6 @@ const styles = theme => ({
     content: {
         flexGrow: 1,
         width: '100%',
-        textAlign: 'center',
     },
     card: {
         margin: '0 auto',
@@ -35,7 +34,11 @@ const styles = theme => ({
     },
     filtersClass: {
         borderBottom: '1px solid gray',
-    }
+    },
+    contentCard: {},
+    headerCard: {
+        paddingTop: 10,
+    },
 });
 
 const History = props => {
@@ -72,7 +75,12 @@ const History = props => {
     const CardComponent = routes[page].componentChildren;
     const items =
         !isLoadingPage &&
-        list.map(item => <CardComponent className={classes.filtersClass} key={`history-card-${uniqueId()}`} data={item}/>);
+        list.map(item => <CardComponent
+            key={`history-card-${uniqueId()}`}
+            className={classes.filtersClass}
+            cardContentCss={classes.contentCard}
+            cardHeaderCss={classes.headerCard}
+            data={item}/>);
     const pagingLoadingView = !isLoadingPage && isLoadingPaging && (
         <CircularProgress variant="indeterminate"/>
     );

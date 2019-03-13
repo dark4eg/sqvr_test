@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '../../Avatar';
 import { convertDate } from '../../../../utils/date';
 
-const User = ({ data, className }) => {
+const User = ({ data, className, cardContentCss, cardHeaderCss }) => {
   const { date, updater, systemText } = data;
 
   const avatarView = <Avatar user={updater} />;
@@ -15,12 +15,13 @@ const User = ({ data, className }) => {
   return (
     <Card className={className}>
       <CardHeader
+          className={cardHeaderCss}
         avatar={avatarView}
         title={`${updater.firstName} ${updater.lastName}`}
         subheader={convertDate(date)}
       />
-      <CardContent>
-        <p dangerouslySetInnerHTML={{ __html: `${systemText},` }} />
+      <CardContent className={cardContentCss}>
+        <p dangerouslySetInnerHTML={{ __html: `${systemText}` }} />
       </CardContent>
     </Card>
   );

@@ -7,9 +7,26 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ExpandLess from '@material-ui/icons/ExpandLess';
+import {withStyles} from '@material-ui/core/styles';
 import Avatar from '../../Avatar';
 
 import { convertDate } from '../../../../utils/date';
+
+const styles = theme => ({
+    flex: {
+        display: 'flex',
+    },
+    flexCellCenter: {
+        alignSelf: 'center'
+    },
+    borderBottom: {
+        borderBottom: '1px solid gray',
+    },
+    contentCard: {},
+    headerCard: {
+        paddingTop: 10,
+    },
+});
 
 class Registry extends Component {
   constructor(props) {
@@ -26,25 +43,28 @@ class Registry extends Component {
   };
 
   render() {
-    const { data, className } = this.props;
+    const { data, classes } = this.props;
     const { date, user, updater, systemText } = data;
     const { additionalIsActive } = this.state;
     const expandBtnView = additionalIsActive ? <ExpandLess /> : <ExpandMore />;
 
     return (
-      <Card className={className}>
+      <Card className={classes.borderBottom}>
         <CardHeader
+            className={classes.headerCard}
           avatar={<Avatar user={updater} />}
           title={`${updater.firstName} ${updater.lastName}`}
           subheader={convertDate(date)}
           action={<IconButton onClick={this.toggleAdditional}>{expandBtnView}</IconButton>}
         />
-        <CardContent>
-          <p dangerouslySetInnerHTML={{ __html: `${systemText},` }} />
-          <div>
-            <span>собственник </span>
-            {user && <Avatar user={user} />}
-            {user && <span>{`${user.firstName} ${user.lastName}`}</span>}
+        <CardContent className={classes.contentCard}>
+          <p dangerouslySetInnerHTML={{ __html: `${systemText}` }} />
+          <div className={classes.flex}>
+            <div className={classes.flexCellCenter}>собственник </div>
+            {user && <Avatar className={classes.flexCellCenter} user={user} size="small"/>}
+            {user && <div className={classes.flexCellCenter}>
+                {`${user.firstName} ${user.lastName}`}
+            </div>}
           </div>
           {additionalIsActive && (
             <Fragment>
@@ -67,4 +87,4 @@ Registry.propTypes = {
   }).isRequired
 };
 
-export default Registry;
+export default withStyles(styles)(Registry);
