@@ -61,7 +61,7 @@ class Registry extends Component {
 Registry.propTypes = {
   data: PropTypes.shape({
     date: PropTypes.string.isRequired,
-    user: PropTypes.shape({}).isRequired,
+    user: PropTypes.shape({}),
     updater: PropTypes.shape({}).isRequired,
     systemText: PropTypes.string
   }).isRequired
