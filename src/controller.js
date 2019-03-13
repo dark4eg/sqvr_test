@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: off */
 import App from 'cerebral';
 import Devtools from 'cerebral/devtools';
 import defaultState from './cerebral/defaultState';
@@ -35,12 +36,14 @@ export default () => {
       [
         ApolloProviderError,
         ({ message, props: { error } }) => {
+          // eslint-disable-next-line no-console
           console.log('apollo error', { Error, message, error });
         }
       ],
       [
         Error,
         ({ message, props: { error } }) => {
+          // eslint-disable-next-line no-console
           console.log('Error happened', { Error, message, error });
         }
       ]
@@ -59,6 +62,7 @@ export default () => {
   });
 
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+    // eslint-disable-next-line no-undef
     window.__APP_CONTROLLER__ = app;
   }
 

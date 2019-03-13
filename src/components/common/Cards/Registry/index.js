@@ -32,7 +32,7 @@ class Registry extends Component {
         <a href={`/history/user/${user.id}/`}>
           <Avatar
             sizes="20,20"
-            className={''}
+            className=""
             alt={`${user.firstName} ${user.lastName}`}
             src={user.avatarUrl}
           />
@@ -40,23 +40,23 @@ class Registry extends Component {
       );
     } else if (user.firstName && user.lastName) {
       avatarView = (
-        <Avatar className={''} alt={`${user.firstName} ${user.lastName}`}>
+        <Avatar className="" alt={`${user.firstName} ${user.lastName}`}>
           {`${user.firstName[0]} ${user.lastName[0]}`}
         </Avatar>
       );
     }
 
     return (
-      <Card className={''}>
+      <Card className="">
         <CardHeader
           avatar={
             <a href={`/history/user/${updater.id}/`}>
-              <Avatar
-                className={''}
+  <Avatar
+                className=""
                 alt={`${updater.firstName} ${updater.lastName}`}
                 src={updater.avatarUrl}
               />
-            </a>
+</a>
           }
           title={`${updater.firstName} ${updater.lastName}`}
           subheader={convertDate(date)}

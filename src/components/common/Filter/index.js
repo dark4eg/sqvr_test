@@ -16,7 +16,12 @@ class Filter extends Component {
         {filters.map(filter => {
           console.log('filter', filter);
           return (
-            <ListItem button selected={filter.isActive} onClick={this.changeFilter(filter.id)}>
+            <ListItem
+              key={filter.id}
+              button
+              selected={filter.isActive}
+              onClick={this.changeFilter(filter.id)}
+            >
               <ListItemText primary={filter.text} />
             </ListItem>
           );

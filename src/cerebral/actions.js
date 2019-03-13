@@ -100,7 +100,7 @@ export const getHistory = async ({ apollo, get, props: { limit, offset } }) => {
 
 const CONST_LIMIT = 10;
 
-export const setParams = ({ store, get, props }) => {
+export const setParams = ({ store, props }) => {
   store.set(state.current.params, (props && props.params) || {});
 };
 
@@ -126,17 +126,16 @@ export const toggleFilter = ({ store, get }) => {
   store.set(state.history.isShowFilter, !isShowFilter);
 };
 
-export const addToHistory = ({ store, get, props }) => {
+export const addToHistory = ({ store, props }) => {
   store.concat(state.history.items.list, props.list);
 };
 
-export const nextMeta = ({ store, get, props }) => {
+export const nextMeta = ({ store, get }) => {
   const { offset, limit } = get(state.history.items.meta);
   store.set(state.history.items.meta, { limit, offset: offset + limit });
 };
 
-export const clearItems = ({ store, get, props }) => {
-  console.log('clearItems', props);
+export const clearItems = ({ store }) => {
   store.set(state.history.items, {
     list: [],
     meta: {
@@ -146,8 +145,7 @@ export const clearItems = ({ store, get, props }) => {
   });
 };
 
-export const setHistory = ({ store, get, props }) => {
-  console.log('props', props);
+export const setHistory = ({ store, props }) => {
   store.set(state.history.items, {
     list: props.list,
     meta: props.meta

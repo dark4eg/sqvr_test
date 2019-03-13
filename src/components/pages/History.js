@@ -2,16 +2,16 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import CardContent from '@material-ui/core/CardContent';
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Page from 'page';
 import { connect } from '@cerebral/react';
 import { sequences, state } from 'cerebral';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Filter from '../common/Filter';
 import Header from '../common/Header';
-import routes from '../Navigate/routes';
 
-const Registry = props => {
-  const { get } = props;
+const History = props => {
+  const { get, routes } = props;
   const page = get(state`current.page`);
   const toggleFilter = get(sequences`toggleFilter`);
   const changeFilter = get(sequences`changeFilter`);
@@ -42,7 +42,9 @@ const Registry = props => {
   const pageLoadingView = isLoadingPage && <CircularProgress variant="indeterminate" />;
 
   const CardComponent = routes[page].componentChildren;
-  const items = !isLoadingPage && list.map((item, i) => <CardComponent key={i} data={item} />);
+  const items =
+    !isLoadingPage &&
+    list.map(item => <CardComponent key={`history-card-${item.date}`} data={item} />);
   const pagingLoadingView = !isLoadingPage && isLoadingPaging && (
     <CircularProgress variant="indeterminate" />
   );
@@ -74,4 +76,9 @@ const Registry = props => {
   );
 };
 
-export default connect(Registry);
+History.propTypes = {
+  routes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  get: PropTypes.func.isRequired
+};
+
+export default connect(History);

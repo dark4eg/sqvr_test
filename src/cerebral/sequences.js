@@ -1,7 +1,10 @@
 import { set, debounce } from 'cerebral/factories';
 import { state } from 'cerebral';
+// eslint-disable-next-line import/no-duplicates
 import * as actions from './actions';
+// eslint-disable-next-line import/no-duplicates
 import { toggleFilter } from './actions';
+// eslint-disable-next-line import/no-duplicates
 import { setHistory } from './actions';
 
 export const routeToRoot = set(state`current.page`, 'root');

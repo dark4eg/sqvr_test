@@ -4,6 +4,7 @@ export const ApolloProviderError = ApolloError;
 
 function ApolloProviderFactory(apolloClient) {
   return context => {
+    // eslint-disable-next-line no-param-reassign
     context.apollo = apolloClient;
 
     if (context.debugger) {
