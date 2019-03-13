@@ -5,10 +5,6 @@ import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 
 const CustomAvatar = ({ user }) => {
-  if (!user) {
-    return undefined;
-  }
-
   const { id, firstName, lastName, avatarUrl } = user;
   let avatarView;
   if (avatarUrl) {
