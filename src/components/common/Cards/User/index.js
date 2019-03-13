@@ -34,7 +34,7 @@ User.propTypes = {
     date: PropTypes.string.isRequired,
     // user: PropTypes.shape({}).isRequired,
     updater: PropTypes.shape({}).isRequired,
-    systemText: PropTypes.string.isRequired
+    systemText: PropTypes.string,
   }).isRequired
 };
 

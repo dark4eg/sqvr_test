@@ -78,7 +78,7 @@ const History = props => {
     const itemsView = (
         <div className={classes.items}>
             <Grid container spacing={24}>
-                <Grid className={isLoadingPage && classes.cell}
+                <Grid className={isLoadingPage ? classes.cell : ''}
                       item
                       xs={12}>
                     { isLoadingPage ? (
@@ -116,7 +116,7 @@ const History = props => {
 
     return (
         <div className={classes.content}>
-            <Grid container spacing={24} xs={12}>
+            <Grid container spacing={24}>
                 <Card className={classes.card}>
                     <Header
                         title={routes[page].title}

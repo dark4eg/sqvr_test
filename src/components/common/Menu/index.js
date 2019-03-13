@@ -44,7 +44,7 @@ const Menu = ({classes, currentPage, listBtn}) => (
                 };
 
                 return (
-                    <Grid className={classes.cell} item xs={12} sm={6} md={6} lg={6}>
+                    <Grid key={btn.key} className={classes.cell} item xs={12} sm={6} md={6} lg={6}>
                         <Btn {...props} className={classes.btn}/>
                     </Grid>
                 );
