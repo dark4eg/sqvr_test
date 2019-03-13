@@ -7,7 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ExpandLess from '@material-ui/icons/ExpandLess';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '../../Avatar';
+
 import { convertDate } from '../../../../utils/date';
 
 class Registry extends Component {
@@ -30,53 +31,10 @@ class Registry extends Component {
     const { additionalIsActive } = this.state;
     const expandBtnView = additionalIsActive ? <ExpandLess /> : <ExpandMore />;
 
-    let avatarUserView;
-    let avatarUpdaterView;
-    if (user.avatarUrl) {
-      avatarUserView = (
-        <a href={`/history/user/${user.id}/`}>
-          <Avatar
-            sizes="20,20"
-            className=""
-            alt={`${user.firstName} ${user.lastName}`}
-            src={user.avatarUrl}
-          />
-        </a>
-      );
-    } else if (user.firstName && user.lastName) {
-      avatarUserView = (
-        <a href={`/history/user/${user.id}/`}>
-          <Avatar className="" alt={`${user.firstName} ${user.lastName}`}>
-            {`${user.firstName[0]} ${user.lastName[0]}`}
-          </Avatar>
-        </a>
-      );
-    }
-    if (updater.avatarUrl) {
-      avatarUpdaterView = (
-        <a href={`/history/user/${updater.id}/`}>
-          <Avatar
-            sizes="20,20"
-            className=""
-            alt={`${updater.firstName} ${updater.lastName}`}
-            src={updater.avatarUrl}
-          />
-        </a>
-      );
-    } else if (updater.firstName && updater.lastName) {
-      avatarUpdaterView = (
-        <a href={`/history/user/${updater.id}/`}>
-          <Avatar className="" alt={`${updater.firstName} ${updater.lastName}`}>
-            {`${updater.firstName[0]} ${updater.lastName[0]}`}
-          </Avatar>
-        </a>
-      );
-    }
-
     return (
       <Card className="">
         <CardHeader
-          avatar={avatarUpdaterView}
+          avatar={<Avatar user={updater} />}
           title={`${updater.firstName} ${updater.lastName}`}
           subheader={convertDate(date)}
           action={<IconButton onClick={this.toggleAdditional}>{expandBtnView}</IconButton>}
@@ -85,7 +43,7 @@ class Registry extends Component {
           <p dangerouslySetInnerHTML={{ __html: `${systemText},` }} />
           <div>
             <span>собственник </span>
-            {avatarUserView}
+            {<Avatar user={user} />}
             <span>{`${user.firstName} ${user.lastName}`}</span>
           </div>
           {additionalIsActive && (
