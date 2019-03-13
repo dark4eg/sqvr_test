@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const Paging = ({ containerClass, cellClass, isLoadingPaging, changePage }) => (
   <div className={containerClass}>
-    <Grid container spacing={12}>
+    <Grid container spacing={24}>
       <Grid className={cellClass} item xs={12}>
         {isLoadingPaging ? (
           <CircularProgress variant="indeterminate" />

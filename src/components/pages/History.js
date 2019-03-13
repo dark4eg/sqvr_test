@@ -84,7 +84,7 @@ const History = props => {
   return (
     <div className={classes.content}>
       <Grid container spacing={24}>
-        <Grid container xs={12}>
+        <Grid container>
           <Card className={classes.card}>
             <Header
               title={routes[page].title}
