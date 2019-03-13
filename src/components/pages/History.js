@@ -14,10 +14,6 @@ import Filter from '../common/Filter';
 import Header from '../common/Header';
 
 const styles = theme => ({
-    // root: {
-    //     flexGrow: 1,
-    //     margin: '10px 20px 10px 10px'
-    // },
     content: {
         flexGrow: 1,
         width: '100%',
@@ -35,10 +31,17 @@ const styles = theme => ({
     filtersClass: {
         borderBottom: '1px solid gray',
     },
-    contentCard: {},
-    headerCard: {
-        paddingTop: 10,
+    cell: {
+        width: '100%',
+        textAlign: 'center',
     },
+    paging: {
+        marginTop: 20,
+        marginBottom: 50,
+    },
+    items: {
+        marginTop: 20,
+    }
 });
 
 const History = props => {
@@ -70,25 +73,46 @@ const History = props => {
     }
 
     const filterView = isShowFilter && <Filter filtersClass={classes.filtersClass} filters={filters} changeFilter={changeFilter}/>;
-    const pageLoadingView = isLoadingPage && <CircularProgress variant="indeterminate"/>;
 
     const CardComponent = routes[page].componentChildren;
-    const items =
-        !isLoadingPage &&
-        list.map(item => <CardComponent
-            key={`history-card-${uniqueId()}`}
-            className={classes.filtersClass}
-            cardContentCss={classes.contentCard}
-            cardHeaderCss={classes.headerCard}
-            data={item}/>);
-    const pagingLoadingView = !isLoadingPage && isLoadingPaging && (
-        <CircularProgress variant="indeterminate"/>
-    );
-    const pagingView = !isLoadingPage && !isLoadingPaging && (
-        <div className="paging" style={{margin: '0 50%'}}>
-            <Button onClick={() => changePage({})}>Показать еще</Button>
+    const itemsView = (
+        <div className={classes.items}>
+            <Grid container spacing={24}>
+                <Grid className={isLoadingPage && classes.cell}
+                      item
+                      xs={12}>
+                    { isLoadingPage ? (
+                        <CircularProgress variant="indeterminate"/>
+                    ) : (
+                        list.map(item => <CardComponent
+                            key={`history-card-${uniqueId()}`}
+                            className={classes.filtersClass}
+                            cardContentCss={classes.contentCard}
+                            cardHeaderCss={classes.headerCard}
+                            data={item}/>)
+                    )}
+                </Grid>
+            </Grid>
         </div>
     );
+
+    const pagingView = (
+        <div className={classes.paging}>
+            <Grid container spacing={24}>
+                <Grid className={classes.cell}
+                      item
+                      xs={12}>
+                    { isLoadingPaging ? (
+                        <CircularProgress variant="indeterminate"/>
+                    ) : (
+                        <Button onClick={() => changePage({})}>Показать еще</Button>
+                    )}
+                </Grid>
+            </Grid>
+        </div>
+    );
+
+
 
     return (
         <div className={classes.content}>
@@ -102,10 +126,8 @@ const History = props => {
                     />
                     <CardContent className={classes.filtersAndList}>
                         {filterView}
-                        {pageLoadingView}
-                        {items}
+                        {itemsView}
                         {pagingView}
-                        {pagingLoadingView}
                     </CardContent>
                 </Card>
             </Grid>

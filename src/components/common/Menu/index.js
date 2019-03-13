@@ -7,7 +7,7 @@ import Btn from './Btn';
 
 const CONST_DEFAULT_USER = 3182;
 const styles = theme => ({
-    root: {
+    menu: {
         flexGrow: 1,
         margin: '20px 10px 20px 10px'
     },
@@ -34,7 +34,7 @@ export const btnList = [
 ];
 
 const Menu = ({classes, currentPage, listBtn}) => (
-    <div className={classes.root}>
+    <div className={classes.menu}>
         <Grid container spacing={24}>
             {listBtn.map(btn => {
                 const props = {
