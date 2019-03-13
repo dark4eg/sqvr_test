@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as Page from 'page';
+import uniqueId from 'lodash/uniqueId';
 import { connect } from '@cerebral/react';
 import { sequences, state } from 'cerebral';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -44,7 +45,7 @@ const History = props => {
   const CardComponent = routes[page].componentChildren;
   const items =
     !isLoadingPage &&
-    list.map(item => <CardComponent key={`history-card-${item.date}`} data={item} />);
+    list.map(item => <CardComponent key={`history-card-${uniqueId()}`} data={item} />);
   const pagingLoadingView = !isLoadingPage && isLoadingPaging && (
     <CircularProgress variant="indeterminate" />
   );
@@ -77,7 +78,7 @@ const History = props => {
 };
 
 History.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  routes: PropTypes.shape({}).isRequired,
   get: PropTypes.func.isRequired
 };
 

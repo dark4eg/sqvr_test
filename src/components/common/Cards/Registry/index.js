@@ -43,8 +43,8 @@ class Registry extends Component {
           <p dangerouslySetInnerHTML={{ __html: `${systemText},` }} />
           <div>
             <span>собственник </span>
-            {<Avatar user={user} />}
-            <span>{`${user.firstName} ${user.lastName}`}</span>
+            {user && <Avatar user={user} />}
+            {user && <span>{`${user.firstName} ${user.lastName}`}</span>}
           </div>
           {additionalIsActive && (
             <Fragment>
@@ -63,7 +63,7 @@ Registry.propTypes = {
     date: PropTypes.string.isRequired,
     user: PropTypes.shape({}).isRequired,
     updater: PropTypes.shape({}).isRequired,
-    systemText: PropTypes.string.isRequired
+    systemText: PropTypes.string
   }).isRequired
 };
 

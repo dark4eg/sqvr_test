@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { state } from 'cerebral';
 import { connect } from '@cerebral/react';
-import * as Routes from './routes';
+import Routes from './routes';
 import DefaultLayout from '../layouts/DefaultLayout';
 
 const Navigate = ({ get, routes }) => {
@@ -12,7 +12,7 @@ const Navigate = ({ get, routes }) => {
 
   return (
     <Fragment>
-      <DefaultLayout>
+      <DefaultLayout page={page}>
         <Component routes={routes} />
       </DefaultLayout>
     </Fragment>
