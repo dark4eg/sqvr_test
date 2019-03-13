@@ -11,10 +11,10 @@ class Filter extends Component {
   };
 
   render() {
-    const { filters } = this.props;
+    const { filters, filtersClass } = this.props;
 
     return (
-      <List component="nav">
+      <List component="nav" className={filtersClass}>
         {filters.map(filter => (
           <ListItem
             key={filter.id}

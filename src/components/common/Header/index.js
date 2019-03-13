@@ -5,8 +5,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Close from '@material-ui/icons/Close';
 import FilterList from '@material-ui/icons/FilterList';
 
-const Header = ({ title, toggleFilter, toIndex }) => (
+const Header = ({ title, toggleFilter, toIndex, className }) => (
   <CardHeader
+      className={className}
     title={title}
     action={[
       <IconButton key="filter" onClick={toggleFilter}>

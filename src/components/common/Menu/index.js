@@ -9,7 +9,7 @@ const CONST_DEFAULT_USER = 3182;
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        margin: '10px 20px 10px 10px'
+        margin: '20px 10px 20px 10px'
     },
     cell: {
         width: '100%',

@@ -5,9 +5,7 @@ import Menu from '../common/Menu';
 const DefaultLayout = ({ page, children }) => {
   return (
     <Fragment>
-      <div className="header">
-        <Menu currentPage={page} />
-      </div>
+      <Menu currentPage={page} />
       <div className="page">{children}</div>
     </Fragment>
   );
