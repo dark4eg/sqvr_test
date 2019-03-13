@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from '@cerebral/react';
 import page from 'page';
-import { state } from 'cerebral';
 import Btn from './Btn';
 
 const CONST_DEFAULT_USER = 3182;
@@ -20,30 +18,27 @@ export const btnList = [
   }
 ];
 
-const Menu = ({ listBtn, get }) => {
-  const current = get(state.current);
+const Menu = ({ currentPage, listBtn }) => (
+  <div>
+    {listBtn.map(btn => {
+      const props = {
+        ...btn,
+        isActive: currentPage === btn.key,
+        onClick: () => page.show(btn.route)
+      };
 
-  return (
-    <div>
-      {listBtn.map(btn => {
-        const props = {
-          ...btn,
-          isActive: current.page === btn.key,
-          onClick: () => page.show(btn.route)
-        };
-
-        return <Btn {...props} />;
-      })}
-    </div>
-  );
-};
+      return <Btn {...props} />;
+    })}
+  </div>
+);
 
 Menu.defaultProps = {
   listBtn: btnList
 };
 
-Menu.props = {
+Menu.propTypes = {
+  currentPage: PropTypes.string.isRequired,
   listBtn: PropTypes.arrayOf(PropTypes.shape({}))
 };
 
-export default connect(Menu);
+export default Menu;

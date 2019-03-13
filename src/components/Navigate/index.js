@@ -25,7 +25,7 @@ Navigate.propTypes = {
 };
 
 Navigate.defaultProps = {
-  Routes
+  routes: Routes
 };
 
 export default connect(Navigate);

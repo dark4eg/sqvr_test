@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import Close from '@material-ui/icons/Close';
@@ -17,5 +18,15 @@ const Header = ({ title, toggleFilter, toIndex }) => (
     ]}
   />
 );
+
+Header.propTypes = {
+  title: PropTypes.string,
+  toggleFilter: PropTypes.func.isRequired,
+  toIndex: PropTypes.func.isRequired
+};
+
+Header.defaultProps = {
+  title: ''
+};
 
 export default Header;
