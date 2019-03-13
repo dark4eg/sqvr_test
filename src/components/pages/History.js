@@ -4,14 +4,14 @@ import CardContent from '@material-ui/core/CardContent';
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as Page from 'page';
-import uniqueId from 'lodash/uniqueId';
 import {connect} from '@cerebral/react';
 import {sequences, state} from 'cerebral';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Filter from '../common/Filter';
 import Header from '../common/Header';
+import Paging from "../common/Paging";
+import List from "../common/List";
 
 const styles = theme => ({
     content: {
@@ -29,6 +29,9 @@ const styles = theme => ({
         borderBottom: '1px solid gray',
     },
     filtersClass: {
+        borderBottom: '1px solid gray',
+    },
+    cardClass: {
         borderBottom: '1px solid gray',
     },
     cell: {
@@ -75,44 +78,6 @@ const History = props => {
     const filterView = isShowFilter && <Filter filtersClass={classes.filtersClass} filters={filters} changeFilter={changeFilter}/>;
 
     const CardComponent = routes[page].componentChildren;
-    const itemsView = (
-        <div className={classes.items}>
-            <Grid container spacing={24}>
-                <Grid className={isLoadingPage ? classes.cell : ''}
-                      item
-                      xs={12}>
-                    { isLoadingPage ? (
-                        <CircularProgress variant="indeterminate"/>
-                    ) : (
-                        list.map(item => <CardComponent
-                            key={`history-card-${uniqueId()}`}
-                            className={classes.filtersClass}
-                            cardContentCss={classes.contentCard}
-                            cardHeaderCss={classes.headerCard}
-                            data={item}/>)
-                    )}
-                </Grid>
-            </Grid>
-        </div>
-    );
-
-    const pagingView = (
-        <div className={classes.paging}>
-            <Grid container spacing={24}>
-                <Grid className={classes.cell}
-                      item
-                      xs={12}>
-                    { isLoadingPaging ? (
-                        <CircularProgress variant="indeterminate"/>
-                    ) : (
-                        <Button onClick={() => changePage({})}>Показать еще</Button>
-                    )}
-                </Grid>
-            </Grid>
-        </div>
-    );
-
-
 
     return (
         <div className={classes.content}>
@@ -126,8 +91,20 @@ const History = props => {
                     />
                     <CardContent className={classes.filtersAndList}>
                         {filterView}
-                        {itemsView}
-                        {pagingView}
+                        <List
+                            containerClass={classes.items}
+                        cellClass={classes.cell}
+                        cardClass={classes.cardClass}
+                        CardComponent={CardComponent}
+                        contentClass={classes.contentCard}
+                        headerClass={classes.headerCard}
+                        isLoadingPage={isLoadingPage}
+                        list={list}/>
+                        <Paging
+                            containerClass={classes.paging}
+                            cellClass={classes.cell}
+                        isLoadingPaging={isLoadingPaging}
+                        changePage={changePage}/>
                     </CardContent>
                 </Card>
             </Grid>
