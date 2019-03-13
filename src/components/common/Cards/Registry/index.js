@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ExpandLess from '@material-ui/icons/ExpandLess';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Avatar from '../../Avatar';
 
 import { convertDate } from '../../../../utils/date';
@@ -36,7 +36,7 @@ class Registry extends Component {
     return (
       <Card className={classes.borderBottom}>
         <CardHeader
-            className={classes.headerCard}
+          className={classes.headerCard}
           avatar={<Avatar user={updater} />}
           title={`${updater.firstName} ${updater.lastName}`}
           subheader={convertDate(date)}
@@ -46,10 +46,10 @@ class Registry extends Component {
           <p dangerouslySetInnerHTML={{ __html: `${systemText}` }} />
           <div className={classes.flex}>
             <div className={classes.flexCellCenter}>собственник </div>
-            {user && <Avatar className={classes.flexCellCenter} user={user} size="small"/>}
-            {user && <div className={classes.flexCellCenter}>
-                {`${user.firstName} ${user.lastName}`}
-            </div>}
+            {user && <Avatar className={classes.flexCellCenter} user={user} size="small" />}
+            {user && (
+              <div className={classes.flexCellCenter}>{`${user.firstName} ${user.lastName}`}</div>
+            )}
           </div>
           {additionalIsActive && (
             <Fragment>
@@ -69,7 +69,8 @@ Registry.propTypes = {
     user: PropTypes.shape({}),
     updater: PropTypes.shape({}).isRequired,
     systemText: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  classes: PropTypes.shape({}).isRequired
 };
 
 export default withStyles(styles)(Registry);

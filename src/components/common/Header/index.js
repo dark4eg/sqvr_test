@@ -7,7 +7,7 @@ import FilterList from '@material-ui/icons/FilterList';
 
 const Header = ({ title, toggleFilter, toIndex, className }) => (
   <CardHeader
-      className={className}
+    className={className}
     title={title}
     action={[
       <IconButton key="filter" onClick={toggleFilter}>
@@ -23,7 +23,8 @@ const Header = ({ title, toggleFilter, toIndex, className }) => (
 Header.propTypes = {
   title: PropTypes.string,
   toggleFilter: PropTypes.func.isRequired,
-  toIndex: PropTypes.func.isRequired
+  toIndex: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired
 };
 
 Header.defaultProps = {

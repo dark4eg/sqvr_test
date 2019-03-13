@@ -32,7 +32,8 @@ class Filter extends Component {
 
 Filter.propTypes = {
   changeFilter: PropTypes.func.isRequired,
-  filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  filtersClass: PropTypes.string.isRequired
 };
 
 export default Filter;
