@@ -4,7 +4,7 @@ import appController from './controller';
 import Navigate from './components/Navigate';
 import './App.css';
 
-let controller = appController();
+const controller = appController();
 
 class AppContainer extends Component {
   render() {
