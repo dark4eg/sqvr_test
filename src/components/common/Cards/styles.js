@@ -8,6 +8,7 @@ export default theme => ({
   },
   borderBottom: {
     boxShadow: 'none',
+    borderRadius: 0,
     borderBottom: '1px solid gray'
   },
   contentCard: {},
